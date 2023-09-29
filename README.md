@@ -1,2 +1,2 @@
 # ru-db-api
-Project to store data from the scraper
+API for storing and fetching data from the scraper.
