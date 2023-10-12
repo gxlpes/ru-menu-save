@@ -20,10 +20,10 @@ public class RuMenuService {
     }
 
     public RuMenuDto saveRuMenu(RuMenuDto ruMenuDto) {
-        ruMenuDto.setSortId(ZonedDateTime.parse(ruMenuDto.getDate()).toLocalDate().toString() + '-' + ruMenuDto.getRu().getCode());
+        ruMenuDto.setSortId(ZonedDateTime.parse(ruMenuDto.getDate()).toLocalDate().toString() + "-" + ruMenuDto.getRuCode());
 
         DynamoDBMapperConfig mapperConfig = DynamoDBMapperConfig.builder()
-                .withTableNameOverride(DynamoDBMapperConfig.TableNameOverride.withTableNameReplacement(ruMenuDto.getRu().getCode()))
+                .withTableNameOverride(DynamoDBMapperConfig.TableNameOverride.withTableNameReplacement(ruMenuDto.getRuCode()))
                 .build();
 
         return ruMenuRepository.save(ruMenuDto, mapperConfig);
