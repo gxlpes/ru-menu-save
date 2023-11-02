@@ -2,7 +2,9 @@ HELP.md
 application.properties
 secret.properties
 /src/main/resources/secret.properties
-
+/.github
+.github/**
+.github/workflows
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
