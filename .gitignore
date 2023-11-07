@@ -1,8 +1,4 @@
 HELP.md
-application.properties
-secret.properties
-/src/main/resources/secret.properties
-
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -35,9 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-### Hidden for security ###
-src/main/resources/secret.properties
-src/main/resources/application.properties
-src/main/resources
-
