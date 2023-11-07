@@ -1,0 +1,21 @@
+version: 0.1
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  pre_build:
+    commands:
+      - echo "Installing Maven..."
+      - apt-get update
+      - apt-get install -y maven
+  build:
+    commands:
+      - echo "Building Java Lambda function..."
+      - mvn clean install
+  post_build:
+    commands:
+      - echo "Zipping deployment package..."
+      - cp target/ru-menu-save-3.1.3-aws.jar ru-menu-save.zip
+      - echo "Updating Lambda Function..."
+      - aws lambda update-function-code --function-name ru-menu-save --zip-file fileb://ru-menu-save.zip --region sa-east-1
+      - echo "Finished buildspec process"
