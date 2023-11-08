@@ -1,4 +1,4 @@
-package com.scraper.save.scraper.config;
+package com.ru.menu.save.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

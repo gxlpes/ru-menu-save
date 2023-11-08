@@ -1,7 +1,6 @@
-package com.scraper.save.scraper;
+package com.ru.menu.save;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
-import com.scraper.save.scraper.Meal;
 
 import java.util.ArrayList;
 import java.util.List;

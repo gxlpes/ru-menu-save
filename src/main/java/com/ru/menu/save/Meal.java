@@ -1,4 +1,4 @@
-package com.scraper.save.scraper;
+package com.ru.menu.save;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
