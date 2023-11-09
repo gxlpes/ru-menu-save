@@ -25,9 +25,6 @@ public class ScraperApplication {
     public Function<RuMenuDto, Object> saveMenu() {
         return input -> {
             try {
-                System.out.println(input);
-                String ta = MySecretsService.getSecret();
-                System.out.println(ta);
                 return ruMenuService.saveRuMenu(input);
             } catch (Exception e) {
                 e.printStackTrace();

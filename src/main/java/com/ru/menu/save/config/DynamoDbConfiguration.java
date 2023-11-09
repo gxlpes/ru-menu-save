@@ -24,7 +24,7 @@ public class DynamoDbConfiguration {
 
     @Bean
     public AmazonDynamoDB buildAmazonDynamoDB() {
-        System.out.println(secretKey);
+        System.out.println(secretKey + " testing");
 
         return AmazonDynamoDBClientBuilder.standard()
                 .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("dynamodb.sa-east-1.amazonaws.com", "sa-east-1"))
@@ -33,5 +33,4 @@ public class DynamoDbConfiguration {
     }
 
 }
-
 
