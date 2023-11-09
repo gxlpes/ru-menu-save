@@ -1,5 +1,6 @@
 package com.ru.menu.save;
 
+import com.ru.menu.save.config.MySecretsService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -10,15 +11,14 @@ import java.util.function.Function;
 @SpringBootApplication
 @ComponentScan(basePackages = "com.ru.menu.save")
 public class ScraperApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(ScraperApplication.class, args);
-    }
-
     private final RuMenuService ruMenuService;
 
     public ScraperApplication(RuMenuService ruMenuService) {
         this.ruMenuService = ruMenuService;
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(ScraperApplication.class, args);
     }
 
     @Bean
@@ -26,6 +26,8 @@ public class ScraperApplication {
         return input -> {
             try {
                 System.out.println(input);
+                String ta = MySecretsService.getSecret();
+                System.out.println(ta);
                 return ruMenuService.saveRuMenu(input);
             } catch (Exception e) {
                 e.printStackTrace();
