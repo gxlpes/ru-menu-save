@@ -16,6 +16,9 @@ public class DynamoDbConfiguration {
     @Value("${SECRET_KEY}")
     private String secretKey;
 
+    @Value("${ACCESS_KEY}")
+    private String accessKey;
+
     @Bean
     public DynamoDBMapper dynamoDBMapper() {
         return new DynamoDBMapper(buildAmazonDynamoDB());
@@ -28,7 +31,7 @@ public class DynamoDbConfiguration {
 
         return AmazonDynamoDBClientBuilder.standard()
                 .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("dynamodb.sa-east-1.amazonaws.com", "sa-east-1"))
-                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials("123", "123")))
+                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
                 .build();
     }
 
