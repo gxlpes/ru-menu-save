@@ -24,11 +24,8 @@ public class DynamoDbConfiguration {
         return new DynamoDBMapper(buildAmazonDynamoDB());
     }
 
-
     @Bean
     public AmazonDynamoDB buildAmazonDynamoDB() {
-        System.out.println(secretKey + " testing");
-
         return AmazonDynamoDBClientBuilder.standard()
                 .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("dynamodb.sa-east-1.amazonaws.com", "sa-east-1"))
                 .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
