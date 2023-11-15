@@ -25,6 +25,7 @@ public class ScraperApplication {
     public Function<RuMenuDto, Object> saveMenu() {
         return input -> {
             try {
+                System.out.println("Received in the service method " + input);
                 return ruMenuService.saveRuMenu(input);
             } catch (Exception e) {
                 e.printStackTrace();
