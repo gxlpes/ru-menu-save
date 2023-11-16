@@ -16,7 +16,7 @@ public class RuMenuService {
         ruMenuDto.setSortId(ZonedDateTime.parse(ruMenuDto.getDate()).toLocalDate().toString() + "-" + ruMenuDto.getRuCode());
 
         DynamoDBMapperConfig mapperConfig = DynamoDBMapperConfig.builder()
-                .withTableNameOverride(DynamoDBMapperConfig.TableNameOverride.withTableNameReplacement(ruMenuDto.getRuCode()))
+                .withTableNameOverride(DynamoDBMapperConfig.TableNameOverride.withTableNameReplacement(ruMenuDto.getRuCode().toLowerCase()))
                 .build();
 
         return ruMenuRepository.save(ruMenuDto, mapperConfig);
