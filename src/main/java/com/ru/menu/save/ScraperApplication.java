@@ -28,10 +28,17 @@ public class ScraperApplication {
         return input -> {
             try {
                 ObjectMapper mapper = new ObjectMapper();
-                Map<String, Object> payload = (Map<String, Object>) input.get("responsePayload");
-                System.out.println("Received in the service method " + payload);
-                RuMenuDto ruMenuDto = mapper.convertValue(payload, RuMenuDto.class);
-                return ruMenuService.saveRuMenu( ruMenuDto);
+
+                // Check the type of responsePayload
+                Object responsePayloadObj = input.get("responsePayload");
+                if (responsePayloadObj instanceof Map) {
+                    Map<String, Object> payload = (Map<String, Object>) responsePayloadObj;
+                    System.out.println("Received in the service method " + payload);
+                    RuMenuDto ruMenuDto = mapper.convertValue(payload, RuMenuDto.class);
+                    return ruMenuService.saveRuMenu(ruMenuDto);
+                } else {
+                    return "Error: responsePayload is not a Map";
+                }
             } catch (Exception e) {
                 e.printStackTrace();
                 return "Error: " + e.getMessage();
